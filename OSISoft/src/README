@@ -1,0 +1,40 @@
+
+ELEVATOR CONTROL SYSTEM : 
+-------------------------
+
+BUILD INSTRUCTIONS : 
+--------------------
+1. Keep all .java files, Manifest file and runElevatorControlSystem under same directory.
+2. Provide executable permission to runElevatorControlSystem file.
+
+USAGE : 
+-------
+./runElevatorControlSystem Elevator_Count Number_Of_Floors
+
+
+POSSIBLE COMMANDS : 
+-------------------
+1. status : Provides status for each elevator in following format - 
+
+   Elevator_ID	Current_Floor	Direction	Destination_Floors
+
+2. step : Starts the Elevator System simulation. If the elevator is moving then simulates it's movement in correct
+          direction. Updates current floor and destination floors list.
+3. stop : Stop the simulation for elevators.
+4. pickup Pickup_Floor Direction : Adds a pickup from input floor in corresponding direction. Program does best effort
+   load balancing based on available elevators and nearest elevator.
+5. update Elevator_ID Destination_Floor : Adds a destination floor for input elevator. Currently, I have not provided
+   functionality to update current floor for an elevator. This could be easily done but would require few validations
+   on new floor, direction and destination floor list's update.
+
+
+POSSIBLE IMPROVEMENTS : 
+-----------------------
+1. Possible to update current floor for an elevator. This will allow updating current floor even if "step" is not
+   activated. Present implementation will update current floor only when "step" is activated.
+2. Load balancing could be done in better way.
+3. Need to handle destination floor list in a better way. Currently, it will just store the floor number and not direction.
+   Storing direction would help in following scenario - 
+   Consider system has 1 elevator which is moving up with destination floors at 3, 5, 10. If user requests a pickup from
+   floor 6 to go down, elevator should not stop at 6 while going up. It should reach floor 10 and then go up if the user
+   at floor 10 need to. And then elevator should come to floor 6 as it needs to go down.
